@@ -1,0 +1,17 @@
+{
+  "name": "docupo",
+  "version": "1.0.0",
+  "description": "DocuRepo aims to simplify the process of content management and distribution by taking a document input and converting it into a structured, organized GitHub repository.",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nth-check": "^2.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.1"
+  }
+}
