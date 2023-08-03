@@ -1,0 +1,42 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docurepo-deployment
+  labels:
+    app: docurepo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: docurepo
+  template:
+    metadata:
+      labels:
+        app: docurepo
+    spec:
+      containers:
+      - name: docurepo
+        image: docurepo:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: GITHUB_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: github-api-key
+              key: key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docurepo-service
+spec:
+  selector:
+    app: docurepo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer
+```
